@@ -23,17 +23,18 @@ def kelvin_to_fahrenheit(temp):
     catchup=False
 )
 def weather_pipeline():
+    API_KEY = Variable.get("OPENWEATHER_API_KEY")
 
     is_weather_api_ready = HttpSensor(
         task_id = 'is_weather_api_ready',
         http_conn_id = 'weathermap_api',
-        endpoint = '/data/2.5/weather?q=Portland&appid=be4f9bb349abd9d54fc5e2328b0b21ca'
+        endpoint = f'/data/2.5/weather?q=Portland&appid={API_KEY}'
         )
 
     extract_weather_data = SimpleHttpOperator(
         task_id = 'extract_weather_data',
         http_conn_id = 'weathermap_api',
-        endpoint = '/data/2.5/weather?q=Portland&appid=be4f9bb349abd9d54fc5e2328b0b21ca',
+        endpoint = f'/data/2.5/weather?q=Portland&appid={API_KEY}',
         method = 'GET',
         response_filter = lambda r: json.loads(r.text),
         log_response = True

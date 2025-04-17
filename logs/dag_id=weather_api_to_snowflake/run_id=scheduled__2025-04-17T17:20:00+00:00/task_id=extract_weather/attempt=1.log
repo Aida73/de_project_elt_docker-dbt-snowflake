@@ -1,0 +1,15 @@
+[2025-04-17T17:25:33.433+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T17:25:39.581+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_api_to_snowflake.extract_weather scheduled__2025-04-17T17:20:00+00:00 [queued]>
+[2025-04-17T17:25:41.913+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_api_to_snowflake.extract_weather scheduled__2025-04-17T17:20:00+00:00 [queued]>
+[2025-04-17T17:25:42.383+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-17T17:25:44.824+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): extract_weather> on 2025-04-17 17:20:00+00:00
+[2025-04-17T17:25:46.773+0000] {standard_task_runner.py:72} INFO - Started process 3588 to run task
+[2025-04-17T17:25:48.376+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_api_to_snowflake', 'extract_weather', 'scheduled__2025-04-17T17:20:00+00:00', '--job-id', '87', '--raw', '--subdir', 'DAGS_FOLDER/dbt_snowflake_pipeline.py', '--cfg-path', '/tmp/tmpog029t2t']
+[2025-04-17T17:25:49.770+0000] {standard_task_runner.py:105} INFO - Job 87: Subtask extract_weather
+[2025-04-17T17:27:39.329+0000] {job.py:229} INFO - Heartbeat recovered after 131.63 seconds
+[2025-04-17T18:10:50.831+0000] {local_task_job_runner.py:228} ERROR - Heartbeat time limit exceeded!
+[2025-04-17T18:10:50.975+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-17T18:10:52.564+0000] {process_utils.py:132} INFO - Sending 15 to group 3588. PIDs of all processes in the group: [3588]
+[2025-04-17T18:10:54.864+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 3588
+[2025-04-17T18:10:56.832+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=3588, status='terminated', exitcode=<Negsignal.SIGTERM: -15>, started='17:25:45') (3588) terminated with exit code -15
+[2025-04-17T18:10:59.835+0000] {standard_task_runner.py:217} INFO - Process not found (most likely exited), stop collecting metrics

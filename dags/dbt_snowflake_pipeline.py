@@ -18,24 +18,60 @@ DEFAULT_ARGS = {
     'depends_on_past': False,
     'start_date': datetime(2025, 4, 15),
     'retries': 1,
-    'retry_delay': timedelta(minutes=5)
+    'retry_delay': timedelta(days=1)
 }
 
 def fetch_weather_data(**context):
     API_KEY = Variable.get("OPENWEATHER_API_KEY")
     CITY = "Paris"
-    print(f'API KEY USED: {API_KEY}')
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={CITY}&appid={API_KEY}&units=metric"
-    response = requests.get(url)
-    data = response.json()
-    context['ti'].xcom_push(key='weather_data', value=data)
+    CITIES = {
+        "Paris": (48.85, 2.35),
+        "London": (51.50, -0.12),
+        "New York": (40.71, -74.01),
+    }
+    all_sql_statements = [
+        """
+            CREATE TABLE IF NOT EXISTS STAGING.WEATHER_RAW (
+                    city STRING,
+                    timestamp TIMESTAMP,
+                    temperature FLOAT,
+                    humidity FLOAT,
+                    pressure FLOAT,
+                    description STRING
+            );
+        """
+    ]
+
+
+    for city, (lat, lon) in CITIES.items():
+        url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+        response = requests.get(url)
+        data = response.json()
+        context['ti'].xcom_push(key='weather_data', value=data)
+        all_sql_statements.append(
+            f"""
+                INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    '{data["name"]}',
+                    CURRENT_TIMESTAMP,
+                    {data["main"]["temp"]},
+                    {data["main"]["humidity"]},
+                    {data["main"]["pressure"]},
+                    '{data["weather"][0]["description"]}'
+                );
+            """
+        )
+    context['ti'].xcom_push(key='weather_table_sql_query', value="\n".join(all_sql_statements))
+
 
 
 
 with DAG(
     dag_id='weather_api_to_snowflake',
     default_args=DEFAULT_ARGS,
-    schedule_interval=timedelta(days=1),
+    schedule_interval=timedelta(minutes=2),
     start_date=datetime(2025, 4, 16),
     catchup=False,
     tags=['weather', 'snowflake', 'dbt']
@@ -52,27 +88,7 @@ with DAG(
     create_weather_raw =  SnowflakeOperator(
         task_id = "load_weather_raw_to_snowflake",
         snowflake_conn_id = "snowflake_conn",
-        sql = """
-            CREATE TABLE IF NOT EXISTS STAGING.WEATHER_RAW (
-                city STRING,
-                timestamp TIMESTAMP,
-                temperature FLOAT,
-                humidity FLOAT,
-                pressure FLOAT,
-                description STRING
-            );
-            INSERT INTO STAGING.WEATHER_RAW (
-                city, timestamp, temperature, humidity, pressure, description
-            )
-            VALUES (
-                '{{ ti.xcom_pull(task_ids="extract_weather", key="weather_data")["name"] }}',
-                CURRENT_TIMESTAMP,
-                {{ ti.xcom_pull(task_ids="extract_weather", key="weather_data")["main"]["temp"] }},
-                {{ ti.xcom_pull(task_ids="extract_weather", key="weather_data")["main"]["humidity"] }},
-                {{ ti.xcom_pull(task_ids="extract_weather", key="weather_data")["main"]["pressure"] }},
-                '{{ ti.xcom_pull(task_ids="extract_weather", key="weather_data")["weather"][0]["description"] }}'
-            );
-        """
+        sql="{{ ti.xcom_pull(task_ids='extract_weather', key='weather_table_sql_query') }}"
     )
 
     end = EmptyOperator(task_id='end')

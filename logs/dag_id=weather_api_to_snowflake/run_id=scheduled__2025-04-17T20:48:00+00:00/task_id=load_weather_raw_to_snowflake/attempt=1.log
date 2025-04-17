@@ -1,0 +1,125 @@
+[2025-04-17T20:50:07.183+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T20:50:07.216+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_api_to_snowflake.load_weather_raw_to_snowflake scheduled__2025-04-17T20:48:00+00:00 [queued]>
+[2025-04-17T20:50:07.232+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_api_to_snowflake.load_weather_raw_to_snowflake scheduled__2025-04-17T20:48:00+00:00 [queued]>
+[2025-04-17T20:50:07.242+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-17T20:50:07.280+0000] {taskinstance.py:2889} INFO - Executing <Task(SnowflakeOperator): load_weather_raw_to_snowflake> on 2025-04-17 20:48:00+00:00
+[2025-04-17T20:50:07.307+0000] {standard_task_runner.py:72} INFO - Started process 546 to run task
+[2025-04-17T20:50:07.313+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_api_to_snowflake', 'load_weather_raw_to_snowflake', 'scheduled__2025-04-17T20:48:00+00:00', '--job-id', '128', '--raw', '--subdir', 'DAGS_FOLDER/dbt_snowflake_pipeline.py', '--cfg-path', '/tmp/tmpkpw_x3fp']
+[2025-04-17T20:50:07.338+0000] {standard_task_runner.py:105} INFO - Job 128: Subtask load_weather_raw_to_snowflake
+[2025-04-17T20:50:07.458+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_api_to_snowflake.load_weather_raw_to_snowflake scheduled__2025-04-17T20:48:00+00:00 [running]> on host b322df8cb9fb
+[2025-04-17T20:50:07.671+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_api_to_snowflake' AIRFLOW_CTX_TASK_ID='load_weather_raw_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T20:48:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-04-17T20:48:00+00:00'
+[2025-04-17T20:50:07.685+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-17T20:50:07.728+0000] {sql.py:278} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS STAGING.WEATHER_RAW (
+                    city STRING,
+                    timestamp TIMESTAMP,
+                    temperature FLOAT,
+                    humidity FLOAT,
+                    pressure FLOAT,
+                    description STRING
+            );
+        
+
+                INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'Paris',
+                    CURRENT_TIMESTAMP,
+                    11.52,
+                    61,
+                    1015,
+                    'clear sky'
+                );
+            
+
+                INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'London',
+                    CURRENT_TIMESTAMP,
+                    10.89,
+                    58,
+                    1013,
+                    'few clouds'
+                );
+            
+
+                INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'New York',
+                    CURRENT_TIMESTAMP,
+                    17.31,
+                    22,
+                    1019,
+                    'clear sky'
+                );
+            
+[2025-04-17T20:50:07.759+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-17T20:50:07.777+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-17T20:50:07.784+0000] {connection.py:423} INFO - Snowflake Connector for Python Version: 3.14.0, Python Version: 3.11.11, Platform: Linux-5.10.76-linuxkit-x86_64-with-glibc2.36
+[2025-04-17T20:50:07.823+0000] {connection.py:1226} INFO - Connecting to GLOBAL Snowflake domain
+[2025-04-17T20:50:07.839+0000] {connection.py:1315} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-04-17T20:50:08.394+0000] {sql.py:553} INFO - Running statement: CREATE TABLE IF NOT EXISTS STAGING.WEATHER_RAW (
+                    city STRING,
+                    timestamp TIMESTAMP,
+                    temperature FLOAT,
+                    humidity FLOAT,
+                    pressure FLOAT,
+                    description STRING
+            );, parameters: None
+[2025-04-17T20:50:08.463+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-17T20:50:08.468+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-04-17T20:50:08.486+0000] {snowflake.py:448} INFO - Snowflake query id: 01bbc1c2-0001-532f-0001-2aee0001240a
+[2025-04-17T20:50:08.506+0000] {sql.py:553} INFO - Running statement: INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'Paris',
+                    CURRENT_TIMESTAMP,
+                    11.52,
+                    61,
+                    1015,
+                    'clear sky'
+                );, parameters: None
+[2025-04-17T20:50:08.884+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-17T20:50:08.899+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-04-17T20:50:08.936+0000] {snowflake.py:448} INFO - Snowflake query id: 01bbc1c2-0001-532c-0000-00012aeefe51
+[2025-04-17T20:50:08.957+0000] {sql.py:553} INFO - Running statement: INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'London',
+                    CURRENT_TIMESTAMP,
+                    10.89,
+                    58,
+                    1013,
+                    'few clouds'
+                );, parameters: None
+[2025-04-17T20:50:09.311+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-17T20:50:09.328+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-04-17T20:50:09.368+0000] {snowflake.py:448} INFO - Snowflake query id: 01bbc1c2-0001-532f-0001-2aee0001240e
+[2025-04-17T20:50:09.380+0000] {sql.py:553} INFO - Running statement: INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'New York',
+                    CURRENT_TIMESTAMP,
+                    17.31,
+                    22,
+                    1019,
+                    'clear sky'
+                );, parameters: None
+[2025-04-17T20:50:09.707+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-17T20:50:09.724+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-04-17T20:50:09.728+0000] {snowflake.py:448} INFO - Snowflake query id: 01bbc1c2-0001-532c-0000-00012aeefe55
+[2025-04-17T20:50:10.013+0000] {connection.py:810} INFO - closed
+[2025-04-17T20:50:10.064+0000] {connection.py:816} INFO - No async queries seem to be running, deleting session
+[2025-04-17T20:50:10.223+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-17T20:50:10.227+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_api_to_snowflake, task_id=load_weather_raw_to_snowflake, run_id=scheduled__2025-04-17T20:48:00+00:00, execution_date=20250417T204800, start_date=20250417T205007, end_date=20250417T205010
+[2025-04-17T20:50:10.454+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-17T20:50:10.488+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-17T20:50:10.495+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

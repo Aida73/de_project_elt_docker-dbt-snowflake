@@ -1,0 +1,18 @@
+[2025-04-17T15:07:47.334+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-17T15:07:47.375+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_api_to_snowflake.extract_weather manual__2025-04-17T15:07:42.571741+00:00 [queued]>
+[2025-04-17T15:07:47.394+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_api_to_snowflake.extract_weather manual__2025-04-17T15:07:42.571741+00:00 [queued]>
+[2025-04-17T15:07:47.397+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-17T15:07:47.422+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): extract_weather> on 2025-04-17 15:07:42.571741+00:00
+[2025-04-17T15:07:47.436+0000] {standard_task_runner.py:72} INFO - Started process 1736 to run task
+[2025-04-17T15:07:47.443+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_api_to_snowflake', 'extract_weather', 'manual__2025-04-17T15:07:42.571741+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/dbt_snowflake_pipeline.py', '--cfg-path', '/tmp/tmpjf4_si3t']
+[2025-04-17T15:07:47.451+0000] {standard_task_runner.py:105} INFO - Job 32: Subtask extract_weather
+[2025-04-17T15:07:47.546+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_api_to_snowflake.extract_weather manual__2025-04-17T15:07:42.571741+00:00 [running]> on host b322df8cb9fb
+[2025-04-17T15:07:47.727+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_api_to_snowflake' AIRFLOW_CTX_TASK_ID='extract_weather' AIRFLOW_CTX_EXECUTION_DATE='2025-04-17T15:07:42.571741+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-17T15:07:42.571741+00:00'
+[2025-04-17T15:07:47.732+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-17T15:07:47.775+0000] {logging_mixin.py:190} INFO - API KEY USED: ***
+[2025-04-17T15:07:48.040+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-04-17T15:07:48.064+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-17T15:07:48.066+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_api_to_snowflake, task_id=extract_weather, run_id=manual__2025-04-17T15:07:42.571741+00:00, execution_date=20250417T150742, start_date=20250417T150747, end_date=20250417T150748
+[2025-04-17T15:07:48.146+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-17T15:07:48.244+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-17T15:07:48.250+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

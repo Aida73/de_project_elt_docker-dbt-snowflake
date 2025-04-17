@@ -1,0 +1,23 @@
+[2025-02-11T17:03:42.538+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-11T17:03:42.593+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_dag.extract_weather_data manual__2025-02-11T17:03:23.547120+00:00 [queued]>
+[2025-02-11T17:03:42.621+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_dag.extract_weather_data manual__2025-02-11T17:03:23.547120+00:00 [queued]>
+[2025-02-11T17:03:42.623+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-02-11T17:03:42.651+0000] {taskinstance.py:2889} INFO - Executing <Task(SimpleHttpOperator): extract_weather_data> on 2025-02-11 17:03:23.547120+00:00
+[2025-02-11T17:03:42.667+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1366) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-02-11T17:03:42.671+0000] {standard_task_runner.py:72} INFO - Started process 1368 to run task
+[2025-02-11T17:03:42.673+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_dag', 'extract_weather_data', 'manual__2025-02-11T17:03:23.547120+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmp1wv6k7od']
+[2025-02-11T17:03:42.679+0000] {standard_task_runner.py:105} INFO - Job 17: Subtask extract_weather_data
+[2025-02-11T17:03:42.794+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_dag.extract_weather_data manual__2025-02-11T17:03:23.547120+00:00 [running]> on host 78b4170648b8
+[2025-02-11T17:03:43.121+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aida' AIRFLOW_CTX_DAG_ID='weather_dag' AIRFLOW_CTX_TASK_ID='extract_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-02-11T17:03:23.547120+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-11T17:03:23.547120+00:00'
+[2025-02-11T17:03:43.133+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-11T17:03:43.188+0000] {http.py:175} INFO - Calling HTTP method
+[2025-02-11T17:03:43.216+0000] {base.py:84} INFO - Retrieving connection 'weathermap_api'
+[2025-02-11T17:03:43.249+0000] {base.py:84} INFO - Retrieving connection 'weathermap_api'
+[2025-02-11T17:03:43.370+0000] {http.py:236} INFO - {"coord":{"lon":-122.6762,"lat":45.5234},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"base":"stations","main":{"temp":271.29,"feels_like":266.57,"temp_min":270.13,"temp_max":272.47,"pressure":1027,"humidity":62,"sea_level":1027,"grnd_level":1016},"visibility":10000,"wind":{"speed":4.02,"deg":61,"gust":8.49},"clouds":{"all":0},"dt":1739293186,"sys":{"type":2,"id":2008548,"country":"US","sunrise":1739287090,"sunset":1739323913},"timezone":-28800,"id":5746545,"name":"Portland","cod":200}
+[2025-02-11T17:03:43.447+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-11T17:03:43.451+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_dag, task_id=extract_weather_data, run_id=manual__2025-02-11T17:03:23.547120+00:00, execution_date=20250211T170323, start_date=20250211T170342, end_date=20250211T170343
+[2025-02-11T17:03:43.545+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-11T17:03:43.640+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-11T17:03:43.646+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

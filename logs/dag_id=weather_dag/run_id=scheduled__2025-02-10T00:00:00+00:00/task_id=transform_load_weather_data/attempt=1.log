@@ -1,0 +1,24 @@
+[2025-02-11T23:32:34.061+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-11T23:32:34.103+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_dag.transform_load_weather_data scheduled__2025-02-10T00:00:00+00:00 [queued]>
+[2025-02-11T23:32:34.132+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_dag.transform_load_weather_data scheduled__2025-02-10T00:00:00+00:00 [queued]>
+[2025-02-11T23:32:34.134+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-02-11T23:32:34.168+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): transform_load_weather_data> on 2025-02-10 00:00:00+00:00
+[2025-02-11T23:32:34.184+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1694) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-02-11T23:32:34.194+0000] {standard_task_runner.py:72} INFO - Started process 1696 to run task
+[2025-02-11T23:32:34.193+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_dag', 'transform_load_weather_data', 'scheduled__2025-02-10T00:00:00+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/weather_dag.py', '--cfg-path', '/tmp/tmp97yv_dlf']
+[2025-02-11T23:32:34.204+0000] {standard_task_runner.py:105} INFO - Job 92: Subtask transform_load_weather_data
+[2025-02-11T23:32:34.355+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_dag.transform_load_weather_data scheduled__2025-02-10T00:00:00+00:00 [running]> on host dbef5e540f20
+[2025-02-11T23:32:34.528+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='aida' AIRFLOW_CTX_DAG_ID='weather_dag' AIRFLOW_CTX_TASK_ID='transform_load_weather_data' AIRFLOW_CTX_EXECUTION_DATE='2025-02-10T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-10T00:00:00+00:00'
+[2025-02-11T23:32:34.532+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-11T23:32:34.640+0000] {logging_mixin.py:190} INFO -        City Description  ...  Sunrise (Local Time)  Sunset (Local Time)
+0  Portland  few clouds  ...   2025-02-11 07:18:10  2025-02-11 17:31:53
+
+[1 rows x 12 columns]
+[2025-02-11T23:32:34.702+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-11T23:32:34.736+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-11T23:32:34.740+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_dag, task_id=transform_load_weather_data, run_id=scheduled__2025-02-10T00:00:00+00:00, execution_date=20250210T000000, start_date=20250211T233234, end_date=20250211T233234
+[2025-02-11T23:32:34.793+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-11T23:32:34.835+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-11T23:32:34.839+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

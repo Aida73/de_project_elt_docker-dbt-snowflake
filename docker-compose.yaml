@@ -20,7 +20,7 @@ x-airflow-common:
     #_PIP_ADDITIONAL_REQUIREMENTS: >- 
     #  minio dbt-core dbt-snowflake requests snowflake-connector-python
     DBT_PROFILES_DIR: /opt/dbt
-    AIRFLOW__LOGGING__REMOTE_LOGGING: False
+    AIRFLOW__LOGGING__REMOTE_LOGGING: 'false'
     AIRFLOW__LOGGING__LOGGING_LEVEL: INFO
     
   volumes:
@@ -29,7 +29,7 @@ x-airflow-common:
     - ./plugins:/opt/airflow/plugins
     - ./dbt:/opt/dbt
     - ./scripts:/opt/scripts
-    - .env:/opt/airflow/.env
+    - ./.env:/opt/airflow/.env
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on

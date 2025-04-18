@@ -1,0 +1,64 @@
+[2025-04-18T18:12:02.585+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T18:12:02.677+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_api_to_snowflake.dbt_tasks.dbt_debug manual__2025-04-18T18:11:45.599763+00:00 [queued]>
+[2025-04-18T18:12:02.696+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_api_to_snowflake.dbt_tasks.dbt_debug manual__2025-04-18T18:11:45.599763+00:00 [queued]>
+[2025-04-18T18:12:02.737+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2025-04-18T18:12:02.790+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): dbt_tasks.dbt_debug> on 2025-04-18 18:11:45.599763+00:00
+[2025-04-18T18:12:02.818+0000] {standard_task_runner.py:72} INFO - Started process 2129 to run task
+[2025-04-18T18:12:02.826+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_api_to_snowflake', 'dbt_tasks.dbt_debug', 'manual__2025-04-18T18:11:45.599763+00:00', '--job-id', '269', '--raw', '--subdir', 'DAGS_FOLDER/dbt_snowflake_pipeline.py', '--cfg-path', '/tmp/tmpzqj7s01o']
+[2025-04-18T18:12:02.834+0000] {standard_task_runner.py:105} INFO - Job 269: Subtask dbt_tasks.dbt_debug
+[2025-04-18T18:12:02.917+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_api_to_snowflake.dbt_tasks.dbt_debug manual__2025-04-18T18:11:45.599763+00:00 [running]> on host b322df8cb9fb
+[2025-04-18T18:12:03.067+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='weather_api_to_snowflake' AIRFLOW_CTX_TASK_ID='dbt_tasks.dbt_debug' AIRFLOW_CTX_EXECUTION_DATE='2025-04-18T18:11:45.599763+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-04-18T18:11:45.599763+00:00'
+[2025-04-18T18:12:03.091+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-04-18T18:12:03.147+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-04-18T18:12:03.154+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt debug --project-dir /opt/dbt --profiles-dir /opt/dbt || true']
+[2025-04-18T18:12:03.200+0000] {subprocess.py:99} INFO - Output:
+[2025-04-18T18:12:08.765+0000] {subprocess.py:106} INFO - [0m18:12:08  Running with dbt=1.9.4
+[2025-04-18T18:12:08.801+0000] {subprocess.py:106} INFO - [0m18:12:08  dbt version: 1.9.4
+[2025-04-18T18:12:08.804+0000] {subprocess.py:106} INFO - [0m18:12:08  python version: 3.11.11
+[2025-04-18T18:12:08.807+0000] {subprocess.py:106} INFO - [0m18:12:08  python path: /home/***/.local/bin/python
+[2025-04-18T18:12:08.809+0000] {subprocess.py:106} INFO - [0m18:12:08  os info: Linux-5.10.76-linuxkit-x86_64-with-glibc2.36
+[2025-04-18T18:12:10.653+0000] {subprocess.py:106} INFO - [0m18:12:10  Using profiles dir at /opt/dbt
+[2025-04-18T18:12:10.656+0000] {subprocess.py:106} INFO - [0m18:12:10  Using profiles.yml file at /opt/dbt/profiles.yml
+[2025-04-18T18:12:10.662+0000] {subprocess.py:106} INFO - [0m18:12:10  Using dbt_project.yml file at /opt/dbt/dbt_project.yml
+[2025-04-18T18:12:10.669+0000] {subprocess.py:106} INFO - [0m18:12:10  adapter type: snowflake
+[2025-04-18T18:12:10.671+0000] {subprocess.py:106} INFO - [0m18:12:10  adapter version: 1.9.2
+[2025-04-18T18:12:10.815+0000] {subprocess.py:106} INFO - [0m18:12:10  Configuration:
+[2025-04-18T18:12:10.818+0000] {subprocess.py:106} INFO - [0m18:12:10    profiles.yml file [[32mOK found and valid[0m]
+[2025-04-18T18:12:10.820+0000] {subprocess.py:106} INFO - [0m18:12:10    dbt_project.yml file [[32mOK found and valid[0m]
+[2025-04-18T18:12:10.822+0000] {subprocess.py:106} INFO - [0m18:12:10  Required dependencies:
+[2025-04-18T18:12:10.827+0000] {subprocess.py:106} INFO - [0m18:12:10   - git [[31mERROR[0m]
+[2025-04-18T18:12:10.829+0000] {subprocess.py:106} INFO - 
+[2025-04-18T18:12:10.831+0000] {subprocess.py:106} INFO - [0m18:12:10  Connection:
+[2025-04-18T18:12:10.834+0000] {subprocess.py:106} INFO - [0m18:12:10    account: dbjbmjn-gb63301
+[2025-04-18T18:12:10.837+0000] {subprocess.py:106} INFO - [0m18:12:10    user: AIDASOW73
+[2025-04-18T18:12:10.840+0000] {subprocess.py:106} INFO - [0m18:12:10    database: DBT_DOCKER_DEMO
+[2025-04-18T18:12:10.842+0000] {subprocess.py:106} INFO - [0m18:12:10    warehouse: COMPUTE_WH
+[2025-04-18T18:12:10.844+0000] {subprocess.py:106} INFO - [0m18:12:10    role: ACCOUNTADMIN
+[2025-04-18T18:12:10.847+0000] {subprocess.py:106} INFO - [0m18:12:10    schema: BASE
+[2025-04-18T18:12:10.849+0000] {subprocess.py:106} INFO - [0m18:12:10    authenticator: None
+[2025-04-18T18:12:10.851+0000] {subprocess.py:106} INFO - [0m18:12:10    oauth_client_id: None
+[2025-04-18T18:12:10.854+0000] {subprocess.py:106} INFO - [0m18:12:10    query_tag: None
+[2025-04-18T18:12:10.856+0000] {subprocess.py:106} INFO - [0m18:12:10    client_session_keep_alive: False
+[2025-04-18T18:12:10.858+0000] {subprocess.py:106} INFO - [0m18:12:10    host: None
+[2025-04-18T18:12:10.860+0000] {subprocess.py:106} INFO - [0m18:12:10    port: None
+[2025-04-18T18:12:10.862+0000] {subprocess.py:106} INFO - [0m18:12:10    proxy_host: None
+[2025-04-18T18:12:10.865+0000] {subprocess.py:106} INFO - [0m18:12:10    proxy_port: None
+[2025-04-18T18:12:10.867+0000] {subprocess.py:106} INFO - [0m18:12:10    protocol: None
+[2025-04-18T18:12:10.869+0000] {subprocess.py:106} INFO - [0m18:12:10    connect_retries: 1
+[2025-04-18T18:12:10.871+0000] {subprocess.py:106} INFO - [0m18:12:10    connect_timeout: None
+[2025-04-18T18:12:10.873+0000] {subprocess.py:106} INFO - [0m18:12:10    retry_on_database_errors: False
+[2025-04-18T18:12:10.875+0000] {subprocess.py:106} INFO - [0m18:12:10    retry_all: False
+[2025-04-18T18:12:10.878+0000] {subprocess.py:106} INFO - [0m18:12:10    insecure_mode: False
+[2025-04-18T18:12:10.880+0000] {subprocess.py:106} INFO - [0m18:12:10    reuse_connections: True
+[2025-04-18T18:12:10.881+0000] {subprocess.py:106} INFO - [0m18:12:10  Registered adapter: snowflake=1.9.2
+[2025-04-18T18:12:11.636+0000] {subprocess.py:106} INFO - [0m18:12:11    Connection test: [[32mOK connection ok[0m]
+[2025-04-18T18:12:11.638+0000] {subprocess.py:106} INFO - 
+[2025-04-18T18:12:11.640+0000] {subprocess.py:106} INFO - [0m18:12:11  [31m1 check failed:[0m
+[2025-04-18T18:12:11.641+0000] {subprocess.py:106} INFO - [0m18:12:11  Error from git --help: Could not find command, ensure it is in the user's PATH: "git"
+[2025-04-18T18:12:11.643+0000] {subprocess.py:106} INFO - 
+[2025-04-18T18:12:12.745+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-04-18T18:12:12.794+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-18T18:12:12.797+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_api_to_snowflake, task_id=dbt_tasks.dbt_debug, run_id=manual__2025-04-18T18:11:45.599763+00:00, execution_date=20250418T181145, start_date=20250418T181202, end_date=20250418T181212
+[2025-04-18T18:12:12.875+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-18T18:12:12.905+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-04-18T18:12:12.908+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

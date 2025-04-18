@@ -6,4 +6,7 @@ RUN pip install --no-cache-dir \
     requests \
     snowflake-connector-python \
     apache-airflow-providers-snowflake \
-    snowflake-sqlalchemy
+    snowflake-sqlalchemy 
+
+
+

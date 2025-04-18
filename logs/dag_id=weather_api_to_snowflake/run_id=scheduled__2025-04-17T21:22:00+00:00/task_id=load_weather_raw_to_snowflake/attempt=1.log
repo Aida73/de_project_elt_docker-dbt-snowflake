@@ -58,3 +58,68 @@
                     'clear sky'
                 );
             
+[2025-04-17T21:24:44.249+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-17T21:24:44.306+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-04-17T21:24:44.316+0000] {connection.py:423} INFO - Snowflake Connector for Python Version: 3.14.0, Python Version: 3.11.11, Platform: Linux-5.10.76-linuxkit-x86_64-with-glibc2.36
+[2025-04-17T21:24:44.329+0000] {connection.py:1226} INFO - Connecting to GLOBAL Snowflake domain
+[2025-04-17T21:24:44.333+0000] {connection.py:1315} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-04-17T21:24:48.173+0000] {sql.py:553} INFO - Running statement: CREATE TABLE IF NOT EXISTS STAGING.WEATHER_RAW (
+                    city STRING,
+                    timestamp TIMESTAMP,
+                    temperature FLOAT,
+                    humidity FLOAT,
+                    pressure FLOAT,
+                    description STRING
+            );, parameters: None
+[2025-04-17T21:24:48.261+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-17T21:24:48.278+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-04-17T21:24:48.290+0000] {snowflake.py:448} INFO - Snowflake query id: 01bbc1e4-0001-532f-0001-2aee00012506
+[2025-04-17T21:24:48.304+0000] {sql.py:553} INFO - Running statement: INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'Paris',
+                    CURRENT_TIMESTAMP,
+                    10.77,
+                    70,
+                    1015,
+                    'clear sky'
+                );, parameters: None
+[2025-04-17T21:24:48.743+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-17T21:24:48.773+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-04-17T21:24:48.780+0000] {snowflake.py:448} INFO - Snowflake query id: 01bbc1e4-0001-532f-0001-2aee0001250a
+[2025-04-17T21:24:48.785+0000] {sql.py:553} INFO - Running statement: INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'London',
+                    CURRENT_TIMESTAMP,
+                    9.88,
+                    64,
+                    1013,
+                    'few clouds'
+                );, parameters: None
+[2025-04-17T21:24:49.130+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-17T21:24:49.135+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-04-17T21:24:49.146+0000] {snowflake.py:448} INFO - Snowflake query id: 01bbc1e4-0001-532f-0001-2aee0001250e
+[2025-04-17T21:24:49.155+0000] {sql.py:553} INFO - Running statement: INSERT INTO STAGING.WEATHER_RAW (
+                    city, timestamp, temperature, humidity, pressure, description
+                )
+                VALUES (
+                    'New York',
+                    CURRENT_TIMESTAMP,
+                    17.48,
+                    21,
+                    1018,
+                    'clear sky'
+                );, parameters: None
+[2025-04-17T21:24:49.764+0000] {sql.py:562} INFO - Rows affected: 1
+[2025-04-17T21:24:49.781+0000] {snowflake.py:447} INFO - Rows affected: 1
+[2025-04-17T21:24:49.799+0000] {snowflake.py:448} INFO - Snowflake query id: 01bbc1e4-0001-532c-0000-00012aeeff39
+[2025-04-17T21:24:50.113+0000] {connection.py:810} INFO - closed
+[2025-04-17T21:24:50.197+0000] {connection.py:816} INFO - No async queries seem to be running, deleting session
+[2025-04-17T21:24:50.419+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-04-17T21:24:50.425+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_api_to_snowflake, task_id=load_weather_raw_to_snowflake, run_id=scheduled__2025-04-17T21:22:00+00:00, execution_date=20250417T212200, start_date=20250417T212441, end_date=20250417T212450
+[2025-04-17T21:24:50.534+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-04-17T21:24:50.575+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-04-17T21:24:50.587+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

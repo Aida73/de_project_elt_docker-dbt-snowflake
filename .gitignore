@@ -1,5 +1,48 @@
 __pycache__
 .env
 **/.env
+**/secrets.toml
 **/.dockerignore
 .dockerignore
+# ⛔ Fichiers sensibles
+.env
+.streamlit/secrets.toml
+*.dbt_profile
+
+# ⚙️ Airflow
+airflow/logs/
+airflow/airflow.db
+airflow/airflow.cfg
+airflow/unittests.cfg
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 🧪 DBT
+dbt/target/
+dbt/dbt_modules/
+dbt/manifest.json
+dbt/run_results.json
+dbt/packages.yml.lock
+
+# 🧱 Streamlit
+weather_elt_streamlit/__pycache__/
+weather_elt_streamlit/.pytest_cache/
+weather_elt_streamlit/.streamlit/secrets.toml
+
+# 🐳 Docker
+*.pid
+*.sock
+*.log
+*.tar
+docker-compose.override.yml
+
+# 💻 OS & IDE files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.tmp

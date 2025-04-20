@@ -8,7 +8,7 @@
 
 
 SELECT
-    DATE_TRUNC('day', timestamp) AS day,
+    TO_DATE(timestamp) AS day,
     city,
     ROUND(AVG(temperature), 2) AS avg_temp,
     ROUND(MAX(temperature), 2) AS max_temp,

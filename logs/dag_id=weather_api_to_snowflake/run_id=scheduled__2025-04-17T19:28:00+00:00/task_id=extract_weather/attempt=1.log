@@ -101,3 +101,6 @@ KeyError: 'name'
 [2025-04-17T19:53:40.235+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
 [2025-04-17T19:53:40.302+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2025-04-17T19:53:40.310+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2025-04-18T19:02:41.899+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-04-18T19:02:41.914+0000] {taskinstance.py:2603} INFO - Dependencies not met for <TaskInstance: weather_api_to_snowflake.extract_weather scheduled__2025-04-17T19:28:00+00:00 [removed]>, dependency 'Task Instance State' FAILED: Task is in the 'removed' state.
+[2025-04-18T19:02:41.928+0000] {local_task_job_runner.py:166} INFO - Task is not able to be run

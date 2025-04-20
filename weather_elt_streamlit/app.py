@@ -69,39 +69,36 @@ try:
             st.metric("Most Humid City", f"{humidest['CITY']}, ({humidest['AVG_HUMIDITY']:.1f} %)")
         
 
-    city = st.selectbox("Select a city", df["CITY"].unique())
-    st.markdown(f"### Weather Temperature Summary for {city}")
-    st.bar_chart(df[df["CITY"] == city].set_index("DAY")[["AVG_TEMP", "MAX_TEMP", "MIN_TEMP"]])
+        city = st.selectbox("Select a city", df["CITY"].unique())
+        st.markdown(f"### Weather Temperature Summary for {city}")
+        st.bar_chart(df[df["CITY"] == city].set_index("DAY")[["AVG_TEMP", "MAX_TEMP", "MIN_TEMP"]])
 
-    # distribution des 
-    st.subheader("Distribution of Weather Data")
-    fig, ax = plt.subplots()
-    df['AVG_TEMP'].hist(bins=20, edgecolor='black', ax=ax)
-    ax.set_title("Distribution of Average Temperature")
-    ax.set_xlabel("Average Temperature (C-elsius)")
-    ax.set_ylabel("Frequency")
-    st.pyplot(fig)
+        # distribution des températures
+        st.subheader("Distribution of Weather Data")
+        plt.figure(figsize=(10, 6))
+        df['AVG_TEMP'].hist(bins=20, edgecolor='black')
+        plt.title("Distribution of Average Temperature")
+        plt.xlabel("Average Temperature (°C)")
+        plt.ylabel("Frequency")
+        st.pyplot(plt.gcf())
 
+        # Carte des temperatures par ville
+        st.subheader("Map of Temperatures by City")
+        cities = {
+            "Paris": (48.8566, 2.3522),
+            "London": (51.5074, -0.1278),
+            "New York": (40.7128, -74.0060)
+        }
+        map_df = df[["CITY", "AVG_TEMP"]].drop_duplicates("CITY")
+        map_df["Latitude"] = map_df["CITY"].map(lambda x: cities[x][0])
+        map_df["Longitude"] = map_df["CITY"].map(lambda x: cities[x][1])
+        st.map(map_df.rename(columns={"Latitude": "lat", "Longitude": "lon"}))
 
-    # Carte des temperatures par ville
-    st.subheader("Map of Temperatures by City")
-    cities = {
-        "Paris": (48.8566, 2.3522),
-        "London": (51.5074, -0.1278),
-        "New York": (40.7128, -74.0060)
-    }
-    map_df = df[["CITY", "AVG_TEMP"]].drop_duplicates("CITY")
-    map_df["Latitude"] = map_df["CITY"].map(lambda x: cities[x][0])
-    map_df["Longitude"] = map_df["CITY"].map(lambda x: cities[x][1])
-    st.map(map_df.rename(columns={"Latitude": "lat", "Longitude": "lon"}))
-
-
-    # temperature moyenne par ville sur plusieurs jours
-    st.subheader("Average Temperature by City Over Multiple Days")
-    avg_temp_by_city = df.groupby("CITY")[["AVG_TEMP"]].mean().reset_index()    
-    avg_temp_by_city = avg_temp_by_city.sort_values("AVG_TEMP", ascending=False)
-    st.bar_chart(avg_temp_by_city.set_index("CITY"))
-
+        # temperature moyenne par ville sur plusieurs jours
+        st.subheader("Average Temperature by City Over Multiple Days")
+        avg_temp_by_city = df.groupby("CITY")[["AVG_TEMP"]].mean().reset_index()    
+        avg_temp_by_city = avg_temp_by_city.sort_values("AVG_TEMP", ascending=False)
+        st.bar_chart(avg_temp_by_city.set_index("CITY"))
 except Exception as e:
     print("Connexion échouée, arrêt de la tentative.")
     st.write("Error:", e)

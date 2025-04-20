@@ -5,5 +5,7 @@ services:
     build: .
     ports:
       - "8501:8501"
+    volumes:
+      - .:/app
     env_file:
       - streamlit/secrets.toml

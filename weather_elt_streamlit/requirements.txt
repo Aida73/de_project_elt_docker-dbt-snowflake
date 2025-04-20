@@ -1,4 +1,8 @@
 streamlit
-snowflake-connector-python
 pandas
+matplotlib
+snowflake-connector-python
+sqlalchemy
+snowflake-sqlalchemy
+pyarrow<19.0.0
 python-dotenv

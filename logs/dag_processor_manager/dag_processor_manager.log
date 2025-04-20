@@ -24465,3 +24465,53 @@ File Path                                      PID  Runtime      # DAGs    # Err
 ================================================================================
 [2025-04-20T19:31:00.266+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
 [2025-04-20T19:31:16.886+0000] {manager.py:824} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-20T19:32:46.743+0000] {manager.py:1366} ERROR - Processor for /opt/airflow/dags/dbt_snowflake_pipeline.py with PID 1727 started at 2025-04-20T19:27:39.573656+00:00 has timed out, killing it.
+[2025-04-20T19:32:51.310+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dbt_snowflake_pipeline.py                           0           1  307.16s         2025-04-20T19:32:46                       0
+================================================================================
+[2025-04-20T19:33:26.791+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dbt_snowflake_pipeline.py   1728  0.35s             0           1  307.16s         2025-04-20T19:32:46                       0
+================================================================================
+[2025-04-20T19:36:42.225+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-04-20T19:36:43.636+0000] {manager.py:824} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-20T19:36:46.993+0000] {manager.py:1366} ERROR - Processor for /opt/airflow/dags/dbt_snowflake_pipeline.py with PID 1728 started at 2025-04-20T19:33:25.672044+00:00 has timed out, killing it.
+[2025-04-20T19:36:48.974+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dbt_snowflake_pipeline.py                           0           1  201.32s         2025-04-20T19:36:46                       0
+================================================================================
+[2025-04-20T19:37:19.573+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dbt_snowflake_pipeline.py   1735  2.09s             0           1  201.32s         2025-04-20T19:36:46                       0
+================================================================================
+[2025-04-20T19:39:01.156+0000] {manager.py:997} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                      PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run               Last # of DB Queries
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------  ----------------------
+/opt/airflow/dags/dbt_snowflake_pipeline.py   1736  4.55s             1           0  5.15s           2025-04-20T19:37:22                      39
+================================================================================
+[2025-04-20T19:44:58.850+0000] {manager.py:483} INFO - Processing files using up to 2 processes at a time 
+[2025-04-20T19:44:59.183+0000] {manager.py:484} INFO - Process each file at most once every 30 seconds
+[2025-04-20T19:44:59.560+0000] {manager.py:485} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-04-20T19:44:59.629+0000] {manager.py:821} INFO - Searching for files in /opt/airflow/dags
+[2025-04-20T19:45:01.388+0000] {manager.py:824} INFO - There are 1 files in /opt/airflow/dags
+[2025-04-20T19:45:35.965+0000] {manager.py:465} INFO - Exiting gracefully upon receiving signal 15

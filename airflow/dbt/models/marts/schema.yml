@@ -1,0 +1,9 @@
+version 2:
+models:
+  - name: stg_weather_raw
+    description: "Staging layer for raw weather data extracted from OpenWeatherMap API"
+    columns:
+      - name: city
+        tests: [not_null]
+      - name: timestamp
+        tests: [not_null]

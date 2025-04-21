@@ -133,7 +133,6 @@ with DAG(
             bash_command=f'{DBT_BIN} docs serve --port 8086 --project-dir /opt/dbt --profiles-dir /opt/dbt',
             env=env
         )
-
         dbt_debug >> dbt_run >> dbt_test >> dbt_docs_generate >> dbt_docs_serve
 
     end = EmptyOperator(task_id='end')

@@ -1,0 +1,11 @@
+name: 'weather_dbt_project'
+version: '1.0'
+profile: 'snowflake_profile'
+config-version: 2
+
+model-paths: ["models"]
+
+models:
+  weather_dbt_project:
+    +materialized: table
+

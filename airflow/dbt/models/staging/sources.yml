@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: staging
+    schema: STAGING
+    tables:
+      - name: WEATHER_RAW
+        description: "Raw weather data loaded from OpenWeatherMap API"

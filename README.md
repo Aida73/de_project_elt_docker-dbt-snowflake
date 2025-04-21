@@ -66,6 +66,7 @@ NB: We use airflow with docker by downloading the official docker-compose.yml fr
 Don't forget to add variables and snowflake connection in the Airflow UI:
 ![Airflow Snowflake conn](snapshots/airflowsnowconn.png)
 ![Airflow variables](snapshots/airflowvar.png)
+![Airflow dags](snapshots/dags.png)
 ---
 
 ## 📦 DBT Models

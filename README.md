@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project iiiiiiis a complete **end-to-end data pipeline** that collects weather data from the OpenWeather API, loads it into Snowflake, transforms it using DBT, and visualizes it with Streamlit.
+This project is a complete **end-to-end data pipeline** that collects weather data from the OpenWeather API, loads it into Snowflake, transforms it using DBT, and visualizes it with Streamlit.
 
 It demonstrates how a **Data Engineer** can orchestrate data ingestion, transformation, and delivery of insights in a clean and modular way.
 

@@ -64,7 +64,7 @@ It demonstrates how a **Data Engineer** can orchestrate data ingestion, transfor
 
 ## 📊 Streamlit Dashboard
 
-🔗 Live Demo: [Deployed on Streamlit Cloud](https://streamlit.app/yourname/weather-dashboard)  
+🔗 Live Demo: [Deployed on Streamlit Cloud](https://deprojecteltdocker-dbt-app-mas27v2zwyyynk9jyry2nj.streamlit.app)
 The dashboard includes:
 - KPI cards: hottest city, average temp, humidity
 - Line chart of daily temps
@@ -76,18 +76,19 @@ The dashboard includes:
 ## 🚀 Getting Started (Local)
 
 ```bash
-git clone https://github.com/Aida73/de_project_elt_docker-dbt-snowflake.git
-cd weather-elt
+    git clone https://github.com/Aida73/de_project_elt_docker-dbt-snowflake.git
+    cd weather-elt
 
-# Start Airflow (optional)
-docker-compose up --build
+    # Start Airflow (optional)
+    docker-compose up --build
 
-# Launch Streamlit (if separate)
-cd weather_etl_streamlit
-docker build -t streamlit-weather .
-docker run --env-file .env -p 8501:8501 streamlit-weather
+    # Launch Streamlit (if separate)
+    cd weather_etl_streamlit
+    docker build -t streamlit-weather .
+    docker run --env-file .env -p 8501:8501 streamlit-weather
+```
 
-📌 Key Learnings
+## 📌 Key Learnings
 
 Building production-like ELT pipelines with Airflow + DBT
 Modular SQL development and reusable macros

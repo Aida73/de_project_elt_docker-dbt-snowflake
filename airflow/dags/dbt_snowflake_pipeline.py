@@ -88,7 +88,7 @@ with DAG(
         # Create weather raw data table into Snowflake
     create_weather_raw =  SnowflakeOperator(
         task_id = "load_weather_raw_to_snowflake",
-        snowflake_conn_id = "snowflake_conn",
+        snowflake_conn_id = "snowflake_conn", # define it in airflow connections
         sql="{{ ti.xcom_pull(task_ids='extract_weather', key='weather_table_sql_query') }}"
     )
 

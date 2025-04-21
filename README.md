@@ -34,23 +34,38 @@ It demonstrates how a **Data Engineer** can orchestrate data ingestion, transfor
 
 ```bash
     .
+
 ├── airflow
 │   ├── config
 │   ├── dags
+│   │   └── __pycache__
+│   ├── dbt
+│   │   ├── logs
+│   │   ├── macros
+│   │   ├── models
+│   │   └── target
 │   ├── logs
+│   │   ├── dag_id=tutorial
+│   │   ├── dag_id=weather_api_to_snowflake
+│   │   ├── dag_id=weather_dag
+│   │   ├── dag_id=weather_pipeline
+│   │   ├── dag_processor_manager
+│   │   └── scheduler
 │   ├── plugins
 │   └── scripts
-├── dbt
-│   ├── logs
-│   ├── macros
-│   ├── models
-│   └── target
 ├── minio_data
 │   └── weather-data-bucket
+│       └── weather_data.csv
+├── snapshots
 └── weather_elt_streamlit
     └── streamlit
 ```
+NB: We use airflow with docker by downloading the official docker-compose.yml from the documentation page:
+![Airflow docker-compose](snapshots/airflowdc.png)
 
+Don't forget to add variables and snowflake connection in the Airflow UI:
+![Airflow Snowflake conn](snapshots/airflowsnowconn.png)
+![Airflow variables](snapshots/airflowvar.png)
 ---
 
 ## 📦 DBT Models

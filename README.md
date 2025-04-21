@@ -71,6 +71,10 @@ The dashboard includes:
 - Temperature histogram
 - Map of cities with weather metrics
 
+<!-- [![Streamlit Demo](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/vt5fpE0bzSY) -->
+![Streamlit demo 1](snapshots/streamlit1.png) ![Streamlit demo 2](snapshots/streamlit2.png) 
+![Streamlit demo 3](snapshots/streamlit3.png) ![Streamlit demo 4](snapshots/streamlit4.png) 
+
 ---
 
 ## 🚀 Getting Started (Local)
